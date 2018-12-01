@@ -252,6 +252,9 @@ void clear_buf()
         n = read(sock, buffer1, BUFSIZE);
         createFile.write(buffer1, n);
 } while (n > 0);
+
+	close(sock);
+createFile.close();
 			 // cout<<"DOWNLOADED "<<dest_path<<endl;
 			  //UPADATING SEEDER LIST////////////////////////////////////////////////////////
 		      update_down(trac_port,dest_path,upload_port,client_ip,tracker_ip);
@@ -539,7 +542,7 @@ ifstream readInputFile(s, ifstream::binary);
 struct stat statObj;
 stat(s.c_str(), &statObj);
 long long int fsize = statObj.st_size; // Size of a file.
-cout<<fsize<<endl;
+//cout<<fsize<<endl;
     int chksz = BUFSIZE;
     //readInputFile.seekg(0, ios::beg);
     long int NC = fsize / chksz; // Calculate number of chunks.
@@ -569,7 +572,8 @@ cout<<fsize<<endl;
             }
         }
 }
-	
+	close(new_socket);
+readInputFile.close();
     } 
 
 int main(int argc, char const *argv[])
