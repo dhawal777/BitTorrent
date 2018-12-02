@@ -381,7 +381,7 @@ void download(int PORT,string s,string upload_port,string client_ip,string dest_
              strcpy(sip_1,tracker_ip.c_str());
 		    int i;
 		    string SHA=sha_search(s);
-			cout<<SHA<<endl;
+			//cout<<SHA<<endl;
 		    //char buffer[1024] = {0}; 
 		    //cout<<SHA<<endl;
 		    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) 
@@ -443,17 +443,17 @@ void download(int PORT,string s,string upload_port,string client_ip,string dest_
 		    }
 		    //cout<<"map"<<endl;
 		    //std::vector<std::thread> reader;
-			cout<<count<<endl;
+			//cout<<count<<endl;
 		    for(i=0;i<count-1;i++)
 		    {
-			   cout<<count<<endl;
+			 //  cout<<count<<endl;
 		    	if(i%3==0)//BECAUSE THIS IS ORDER OF SEADER LIST FROM TRACKER///////////////////////////////////////
 		    		{
 		    			//cout<<v[i]<<endl;
 		    			stringstream geek(v[i]); 
 		                int x = 0; 
 					    geek >> x; 
-					    cout<<x<<endl;
+					   // cout<<x<<endl;
 					    //cout<<v[i+1]<<endl;
 					    //cout<<"champ"<<endl;	
 					    client_down(x,v[i+1],upload_port,PORT,client_ip,dest_path,v[i+2],tracker_ip);
@@ -515,7 +515,7 @@ void server(int PORT,string a)
 	 int fd;
 	 string s;
 	 s=buf;
-	 cout<<s<<endl;
+	// cout<<s<<endl;
 	 //cout<<s<<endl;
 //  fd= open(s.c_str(),O_RDONLY,O_SYNC);
 //  sleep(1);
@@ -784,7 +784,7 @@ int main(int argc, char const *argv[])
 		       while (std::getline(fin, str))
               {
         	   //cout<<"IN THE HUT"<<endl;
-        	   cout<<str<<endl;
+        	  // cout<<str<<endl;
                count++;
                if(count==3)
                line=str;
@@ -792,7 +792,7 @@ int main(int argc, char const *argv[])
 	            fin.close();
 			    count=0; 
 			    //cout<<"This is line"<<endl;
-			    cout<<line<<endl;
+			    //cout<<line<<endl;
 			    thread th6(rm_torrent,x,port2,line,s5);
 			    th6.join();
 			    char *rmfile;
